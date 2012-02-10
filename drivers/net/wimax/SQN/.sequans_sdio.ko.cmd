@@ -1,0 +1,1 @@
+cmd_drivers/net/wimax/SQN/sequans_sdio.ko := /home/ca1ne/toolchain/arm-2010q1/bin/arm-none-linux-gnueabi-ld -EL -r  -T /home/ca1ne/Underworld-Sense-Kernel/scripts/module-common.lds --build-id -o drivers/net/wimax/SQN/sequans_sdio.ko drivers/net/wimax/SQN/sequans_sdio.o drivers/net/wimax/SQN/sequans_sdio.mod.o

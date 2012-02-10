@@ -120,7 +120,214 @@ config CPU_FREQ_DEFAULT_GOV_INTERACTIVE
 	  loading your cpufreq low-level hardware driver, using the
 	  'interactive' governor for latency-sensitive workloads.
 
+config CPU_FREQ_DEFAULT_GOV_SMARTASS
+	bool "smartass"
+	select CPU_FREQ_GOV_SMARTASS
+	select CPU_FREQ_GOV_PERFORMANCE
+	help
+	  Use the CPUFreq governor 'smartass' as default.
+
+config CPU_FREQ_DEFAULT_GOV_SMARTASS2
+	bool "smartass2"
+	select CPU_FREQ_GOV_SMARTASS2
+	help
+	  Use the CPUFreq governor 'smartassV2' as default.
+
 endchoice
+
+config CPU_FREQ_GOV_SMARTASS
+	tristate "'smartass' cpufreq governor"
+	depends on CPU_FREQ
+	help
+	  'smartass' - a "smart" optimized governor for the hero!
+	  If in doubt, say N.
+	
+config SMARTASS_DEFAULT_UP_RATE_US
+	int "Up Rate uS"
+	default 10000
+	depends on CPU_FREQ_GOV_SMARTASS
+	help
+	  The minimum amount of time to spend at a frequency before we can ramp up.
+	
+config SMARTASS_SLEEP_MAX
+	int "Sleep Max Freq"
+	default 245000
+	depends on CPU_FREQ_GOV_SMARTASS
+	help
+	  When sleep_max_freq>0 the frequency when suspended will be capped
+	  by this frequency. Also will wake up at max frequency of policy
+	  to minimize wakeup issues.
+	  Set sleep_max_freq=0 to disable this behavior.
+
+config SMARTASS_SLEEP_WAKEUP
+	int "Sleep Wakeup Freq"
+	default CPU_FREQ_MAX_FREQ
+	depends on CPU_FREQ_GOV_SMARTASS
+	help
+	  The frequency to set when waking up from sleep.
+	  When sleep_max_freq=0 this will have no effect.
+
+config SMARTASS_UP_THRESHOLD_FREQ
+	int "Threshold Frequency"
+	default 1800000
+	depends on CPU_FREQ_GOV_SMARTASS
+	help
+	Try to minimize going above this frequency
+	
+config SMARTASS_DEFAULT_AWAKE_MIN_FREQ
+	int "Awake minimum frequency"
+	default 245000
+	depends on CPU_FREQ_GOV_SMARTASS
+	help
+	  When awake_min_freq>0 the frequency when not suspended will not
+	  go below this frequency. Set awake_min_freq=0 to disable this behavior.
+	
+config SMARTASS_DEFAULT_SAMPLE_RATE_JIFFIES
+	int "Default sample rate jiffies"
+	default 2
+	depends on CPU_FREQ_GOV_SMARTASS
+	help
+	  Sampling rate, I highly recommend to leave it at 2.
+	
+config SMARTASS_DEFAULT_RAMP_UP_STEP
+	int "Default ramp up step"
+	default 38400
+	depends on CPU_FREQ_GOV_SMARTASS
+	help
+	  Freqeuncy delta when ramping up.
+	  zero disables causes to always jump straight to max frequency.
+	
+config SMARTASS_DEFAULT_MAX_RAMP_DOWN
+	int "Default ramp down step"
+	default 38400
+	depends on CPU_FREQ_GOV_SMARTASS
+	help
+	Max freqeuncy delta when ramping down. zero disables.
+	
+config SMARTASS_DEFAULT_MAX_CPU_LOAD
+	int "Default max cpu load"
+	default 80
+	depends on CPU_FREQ_GOV_SMARTASS
+	help
+	  CPU freq will be increased if measured load > max_cpu_load;
+	
+config SMARTASS_DEFAULT_MIN_CPU_LOAD
+	int "Default min cpu load"
+	default 30
+	depends on CPU_FREQ_GOV_SMARTASS
+	help
+	CPU freq will be decreased if measured load < min_cpu_load;
+	
+config SMARTASS_RAPID_MIN_CPU_LOAD
+	int "Rapid min cpu load"
+	default 5
+	depends on CPU_FREQ_GOV_SMARTASS
+	help
+	Drop to awake minimum frequency if load is below this;
+	
+config SMARTASS_DEFAULT_DOWN_RATE_US
+	int "Default down rate in us"
+	default 45
+	depends on CPU_FREQ_GOV_SMARTASS
+	help
+	  The minimum amount of time to spend at a frequency before we can ramp down,
+	  default is 45ms
+	
+config SMARTASS_DEFAULT_UP_MIN_FREQ
+	int "Default up minimum frequency"
+	default 999999
+	depends on CPU_FREQ_GOV_SMARTASS
+	help
+	  When ramping up frequency with no idle cycles jump to at least this frequency.
+	  Zero disables. Set a very high value to jump to policy max freqeuncy.
+
+config CPU_FREQ_GOV_SMARTASS2
+	tristate "'smartassV2' cpufreq governor"
+	depends on CPU_FREQ
+	help
+	  'smartassV2' - a "smart" optimized governor for the hero!
+	
+config SMARTASS2_DEFAULT_AWAKE_IDEAL_FREQ
+	int "Ideal Awake Frequency"
+	default 806400
+	depends on CPU_FREQ_GOV_SMARTASS2
+	help
+	  The "ideal" frequency to use when awake. The governor will ramp up faster
+	  towards the ideal frequency and slower after it has passed it. Similarly,
+	  lowering the frequency towards the ideal frequency is faster than below it.
+	
+config SMARTASS2_DEFAULT_SLEEP_IDEAL_FREQ
+	int "Default Sleep Frequency"
+	default 245000
+	depends on CPU_FREQ_GOV_SMARTASS2
+	help
+	  The "ideal" frequency to use when suspended.
+	  When set to 0, the governor will not track the suspended state (meaning
+	  that practically when sleep_ideal_freq==0 the awake_ideal_freq is used
+	  also when suspended).
+	
+config SMARTASS2_DEFAULT_RAMP_UP_STEP
+	int "Default Ramp Up Step"
+	default 38400
+	depends on CPU_FREQ_GOV_SMARTASS2
+	help
+	  Freqeuncy delta when ramping up above the ideal freqeuncy.
+	  Zero disables and causes to always jump straight to max frequency.
+	  When below the ideal freqeuncy we always ramp up to the ideal freq.
+	
+config SMARTASS2_DEFAULT_RAMP_DOWN_STEP
+	int "Default Ramp Down Step"
+	default 38400
+	depends on CPU_FREQ_GOV_SMARTASS2
+	help
+	  Freqeuncy delta when ramping down below the ideal freqeuncy.
+	  Zero disables and will calculate ramp down according to load heuristic.
+	  When above the ideal freqeuncy we always ramp down to the ideal freq.
+	
+config SMARTASS2_DEFAULT_MAX_CPU_LOAD
+	int "Default Max CPU Load"
+	default 75
+	depends on CPU_FREQ_GOV_SMARTASS2
+	help
+	  CPU freq will be increased if measured load > max_cpu_load
+	
+config SMARTASS2_DEFAULT_MIN_CPU_LOAD
+	int "Default Min CPU Load"
+	default 50
+	depends on CPU_FREQ_GOV_SMARTASS2
+	help
+	  CPU freq will be decreased if measured load < min_cpu_load
+	
+config SMARTASS2_DEFAULT_UP_RATE_US
+	int "Default up rate uS"
+	default 10
+	depends on CPU_FREQ_GOV_SMARTASS2
+	help
+	  The minimum amount of time to spend at a frequency before we can ramp up.
+	  Notice we ignore this when we are below the ideal frequency.
+	
+config SMARTASS2_DEFAULT_DOWN_RATE_US
+	int "Default down rate uS"
+	default 20
+	depends on CPU_FREQ_GOV_SMARTASS2
+	help
+	  The minimum amount of time to spend at a frequency before we can ramp down.
+	  Notice we ignore this when we are above the ideal frequency.
+	
+config SMARTASS2_DEFAULT_SLEEP_WAKEUP_FREQ
+	int "Default sleep wakeup freq"
+	default 806400
+	depends on CPU_FREQ_GOV_SMARTASS2
+	help
+	  The frequency to set when waking up from sleep.
+	  When sleep_ideal_freq=0 this will have no effect.
+	
+config SMARTASS2_DEFAULT_SAMPLE_RATE_JIFFIES
+	int "Default sample rate jiffies"
+	default 2
+	depends on CPU_FREQ_GOV_SMARTASS2
+	help
+	  Sampling rate, I highly recommend to leave it at 2.
 
 config CPU_FREQ_GOV_PERFORMANCE
 	tristate "'performance' governor"

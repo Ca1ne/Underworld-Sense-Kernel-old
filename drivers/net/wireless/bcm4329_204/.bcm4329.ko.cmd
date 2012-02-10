@@ -1,0 +1,1 @@
+cmd_drivers/net/wireless/bcm4329_204/bcm4329.ko := /home/ca1ne/toolchain/arm-2010q1/bin/arm-none-linux-gnueabi-ld -EL -r  -T /home/ca1ne/Underworld-Sense-Kernel/scripts/module-common.lds --build-id -o drivers/net/wireless/bcm4329_204/bcm4329.ko drivers/net/wireless/bcm4329_204/bcm4329.o drivers/net/wireless/bcm4329_204/bcm4329.mod.o

@@ -1,0 +1,1 @@
+cmd_drivers/net/wimax/wimaxdbg/wimaxdbg.ko := /home/ca1ne/toolchain/arm-2010q1/bin/arm-none-linux-gnueabi-ld -EL -r  -T /home/ca1ne/Underworld-Sense-Kernel/scripts/module-common.lds --build-id -o drivers/net/wimax/wimaxdbg/wimaxdbg.ko drivers/net/wimax/wimaxdbg/wimaxdbg.o drivers/net/wimax/wimaxdbg/wimaxdbg.mod.o

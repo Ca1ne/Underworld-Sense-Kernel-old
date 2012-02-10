@@ -1,0 +1,1 @@
+cmd_drivers/video/msm/hdmi/silicon-image/sil.o := /home/ca1ne/toolchain/arm-2010q1/bin/arm-none-linux-gnueabi-ld -EL    -r -o drivers/video/msm/hdmi/silicon-image/sil.o drivers/video/msm/hdmi/silicon-image/tpi.o drivers/video/msm/hdmi/silicon-image/hdcp.o drivers/video/msm/hdmi/silicon-image/av_config.o drivers/video/msm/hdmi/silicon-image/debug-sil902x.o 

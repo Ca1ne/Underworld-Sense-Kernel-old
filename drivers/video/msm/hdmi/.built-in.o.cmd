@@ -1,0 +1,1 @@
+cmd_drivers/video/msm/hdmi/built-in.o :=  /home/ca1ne/toolchain/arm-2010q1/bin/arm-none-linux-gnueabi-ld -EL    -r -o drivers/video/msm/hdmi/built-in.o drivers/video/msm/hdmi/msm_hdmi.o drivers/video/msm/hdmi/silicon-image/built-in.o 
