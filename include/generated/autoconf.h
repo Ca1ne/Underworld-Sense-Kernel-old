@@ -1,7 +1,7 @@
 /*
  * Automatically generated C config: don't edit
- * Linux kernel version: 2.6.35.10
- * Thu Feb  9 20:00:05 2012
+ * Linux kernel version: 2.6.35underworld
+ * Fri Feb 10 23:21:25 2012
  */
 #define AUTOCONF_INCLUDED
 #define CONFIG_NF_CONNTRACK_H323 1
@@ -448,7 +448,7 @@
 #define CONFIG_MSM_CAMERA 1
 #define CONFIG_DEBUG_KERNEL 1
 #define CONFIG_COMPAT_BRK 1
-#define CONFIG_LOCALVERSION "Underworld 0.1"
+#define CONFIG_LOCALVERSION "0.1"
 #define CONFIG_CRYPTO 1
 #define CONFIG_SCHED_DEBUG 1
 #define CONFIG_LEDS_GPIO_PLATFORM 1

@@ -161,7 +161,7 @@ config SMARTASS_SLEEP_MAX
 
 config SMARTASS_SLEEP_WAKEUP
 	int "Sleep Wakeup Freq"
-	default CPU_FREQ_MAX_FREQ
+	default 999999
 	depends on CPU_FREQ_GOV_SMARTASS
 	help
 	  The frequency to set when waking up from sleep.

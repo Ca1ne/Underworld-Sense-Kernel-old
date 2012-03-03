@@ -2137,6 +2137,7 @@
 0x00000000	input_event	vmlinux	EXPORT_SYMBOL
 0x00000000	hex_to_bin	vmlinux	EXPORT_SYMBOL
 0x00000000	simple_pin_fs	vmlinux	EXPORT_SYMBOL
+0x00000000	read_surfaceflinger_file	vmlinux	EXPORT_SYMBOL
 0x00000000	vmalloc_user	vmlinux	EXPORT_SYMBOL
 0x00000000	schedule_delayed_work	vmlinux	EXPORT_SYMBOL
 0x00000000	udp_memory_allocated	vmlinux	EXPORT_SYMBOL

@@ -3,6 +3,7 @@ cmd_drivers/video/msm/msm_fb.o := /home/ca1ne/toolchain/arm-2010q1/bin/arm-none-
 deps_drivers/video/msm/msm_fb.o := \
   drivers/video/msm/msm_fb.c \
     $(wildcard include/config/msm/mdp40.h) \
+    $(wildcard include/config/msm/hdmi.h) \
     $(wildcard include/config/fb/msm/logo.h) \
     $(wildcard include/config/panel/self/refresh.h) \
     $(wildcard include/config/fb/msm/overlay.h) \
