@@ -1,1 +1,0 @@
-cmd_drivers/i2c/chips/built-in.o :=  /home/ca1ne/toolchain/arm-2010q1/bin/arm-none-linux-gnueabi-ld -EL    -r -o drivers/i2c/chips/built-in.o drivers/i2c/chips/akm8973.o drivers/i2c/chips/tpa6130.o drivers/i2c/chips/tpa2018d1.o drivers/i2c/chips/adp1650_flashlight.o drivers/i2c/chips/smb329.o drivers/i2c/chips/tps65200.o 

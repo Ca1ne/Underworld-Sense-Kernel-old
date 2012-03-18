@@ -1,1 +1,0 @@
-cmd_drivers/input/built-in.o :=  /home/ca1ne/toolchain/arm-2010q1/bin/arm-none-linux-gnueabi-ld -EL    -r -o drivers/input/built-in.o drivers/input/input-core.o drivers/input/evdev.o drivers/input/touchscreen/built-in.o drivers/input/misc/built-in.o drivers/input/keyreset.o 
