@@ -1,8 +1,8 @@
-/* This file is auto generated, version 8 */
+/* This file is auto generated, version 9 */
 /*  PREEMPT */
 #define UTS_MACHINE "arm"
-#define UTS_VERSION "#8 PREEMPT Sun Mar 18 15:49:41 EDT 2012"
-#define LINUX_COMPILE_TIME "15:49:41"
+#define UTS_VERSION "#9 PREEMPT Sun Mar 18 16:33:59 EDT 2012"
+#define LINUX_COMPILE_TIME "16:33:59"
 #define LINUX_COMPILE_BY "ca1ne"
 #define LINUX_COMPILE_HOST "ca1ne-HP-ubuntu"
 #define LINUX_COMPILE_DOMAIN "(none)"
